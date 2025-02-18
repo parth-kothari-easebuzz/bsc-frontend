@@ -35,8 +35,6 @@ const Delete = ({ id, onClose, refreshData }) => {
     try {
       setIsLoading(true)
       const response = await delete_record_by_id(id);
-      console.log(response.data);
-      console.log(response.status);
       refreshData();
       onClose();
       showAlert(response.data?.message, "");

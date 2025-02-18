@@ -53,7 +53,6 @@ const Edit = ({ id, onClose, refreshData }) => {
       const response = await update_record_by_id(id, formattedValues);
       refreshData();
       onClose();
-      console.log(response.data);
       showAlert(response.data?.message, "");
     } catch (error) {
       console.error("Error updating record:", error);
@@ -115,7 +114,8 @@ const Edit = ({ id, onClose, refreshData }) => {
               { required: true, message: "Please enter a valid number." },
             ]}
           >
-            <InputNumber style={{ width: "100%" }} />
+            <InputNumber max={100000000} min={1} style={{ width: "100%" }} />
+
           </Form.Item>
 
           <Form.Item
@@ -125,7 +125,8 @@ const Edit = ({ id, onClose, refreshData }) => {
               { required: true, message: "Please enter a valid number." },
             ]}
           >
-            <InputNumber style={{ width: "100%" }} />
+            <InputNumber max={100000000} min={1} style={{ width: "100%" }} />
+
           </Form.Item>
 
           <Form.Item
@@ -135,7 +136,8 @@ const Edit = ({ id, onClose, refreshData }) => {
               { required: true, message: "Please enter a valid number." },
             ]}
           >
-            <InputNumber style={{ width: "100%" }} />
+            <InputNumber max={100000000} min={1} style={{ width: "100%" }} />
+
           </Form.Item>
 
           <Form.Item>

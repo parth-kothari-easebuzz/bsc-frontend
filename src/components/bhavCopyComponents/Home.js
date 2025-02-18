@@ -10,6 +10,9 @@ import Navbar from "../navBarComponent/Navbar";
 import DownloadBhavCopy from "./DownloadBhavCopy";
 
 const Home = () => {
+
+  //define a state it has state value, a function and a default value 
+  // It is render the component every time when the state is changed
   const [data, setData] = useState([]);
   const [totalRecords, setTotalRecords] = useState(0);
   const [hasRecords, setHasRecords] = useState(true);
@@ -29,8 +32,6 @@ const Home = () => {
     try {
       setIsLoading(true)
       const response = await get_all_records(currentPage, pageSize, searchQuery);
-      console.log(response);
-      console.log(response.data);
       const records = response.data.data;
       setData(records);
       setTotalRecords(response.data.total);
@@ -45,37 +46,51 @@ const Home = () => {
     }
   };
 
+  // It calls whenever the component is called
+  // It takes a function, return the function and take a dependency array. 
+  // It runs everytime when value of dependency array's value (State or Prop) is changed. 
+  // If no an empty array [] is defined then it runs only 1 time when this component is called.
+  // If nothing is defined at the end then it runs on each renders.
   useEffect(() => {
     getData();
   }, [currentPage, pageSize, searchQuery]);
 
+  // change page and size
   const handleTableChange = (pagination) => {
     setCurrentPage(pagination.current);
     setPageSize(pagination.pageSize);
   };
 
+  // For searching 
   const handleSearch = (value) => {
     setSearchQuery(value.trim() || "");
     setCurrentPage(1);
   };
 
+  // For when to show edit component
   const handleEditModalClose = () => {
     setIsEditModalVisible(false);
     setEditingId(null);
   };
 
+  // For when to show delete component
   const handleDeleteModalClose = () => {
     setIsDeleteModalVisible(false);
     setDeleteId(null);
   };
 
+  // When change the date from DatePicker  
   const handleDateChange = (dateString) => {
     setSelectedDate(dateString);
   };
+
+  // Using ANTD set the values.
   const columns = [
     {
       title: "ID",
       key: "id",
+
+      //render(rowindex, colindex, indexOfCurrentPage(Initial 0)) 
       render: (_, __, index) => index + 1 + (currentPage - 1) * pageSize,
     },
     { title: "Name", dataIndex: "name", key: "name" },
@@ -154,7 +169,6 @@ const Home = () => {
         </div>
       ) : (
         <>
-          {/* {hasRecords && searchQuery && searchQuery.trim() */}
           {hasRecords && (
             <DownloadSearchResult searchQuery={searchQuery} />
           )}
@@ -190,6 +204,7 @@ const Home = () => {
           />
         )}
       </Modal>
+
       {/* Delete Modal */}
       <Modal
         title="Delete Record"

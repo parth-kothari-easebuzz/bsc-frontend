@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { upload_csv_file } from "./Modles";
 import { showAlert } from "../ApiResponseToasters";
 
-const ParseResult = ({ getData }) => {
+const UploadCsv = ({ getData }) => {
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -46,4 +46,4 @@ const ParseResult = ({ getData }) => {
   );
 };
 
-export default ParseResult;
+export default UploadCsv;

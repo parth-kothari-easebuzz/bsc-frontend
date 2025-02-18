@@ -1,6 +1,6 @@
 import React from "react";
 import { Layout, Menu } from "antd";
-import ParseResult from "../bhavCopyComponents/ParseResult";
+import UploadCsv from "../bhavCopyComponents/UploadCsv";
 
 const { Header } = Layout;
 
@@ -21,7 +21,7 @@ const Navbar = ({ getData }) => {
           right: "20px",
         }}
       >
-        <ParseResult getData={getData} />
+        <UploadCsv getData={getData} />
       </div>
       <Menu
         theme="dark"

@@ -1,3 +1,5 @@
+// ALL THE URLS ARE STORE IN THIS FILE
+
 import axios from "axios";
 
 const BASE_URL = "http://127.0.0.1:8000/api";
@@ -25,7 +27,6 @@ export const download_search_result = {
       );
       return response;
     } catch (error) {
-      console.error("Download error:", error);
       return {
         success: false,
         status: error.response?.status || 500,
@@ -47,7 +48,6 @@ export const download_bhav_copy = {
       );
       return response;
     } catch (error) {
-      console.error("Download error:", error);
       return {
         success: false,
         status: error.response?.status || 500,
