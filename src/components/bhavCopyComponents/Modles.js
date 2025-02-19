@@ -22,7 +22,9 @@ export const download_search_result = {
       const response = await axios.get(
         `${BASE_URL}/download/search-result/?search=${searchQuery}`,
         {
-          responseType: "blob", // Ensure response is treated as a file (blob)
+          // binary large object
+          // for store files,pdf,csv...
+          responseType: "blob",
         }
       );
       return response;
@@ -43,7 +45,7 @@ export const download_bhav_copy = {
       const response = await axios.get(
         `${BASE_URL}/download/bhav-copy/by-date/?date=${request}`,
         {
-          responseType: "blob", // Ensure response is treated as a file (blob)
+          responseType: "blob",
         }
       );
       return response;

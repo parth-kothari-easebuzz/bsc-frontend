@@ -38,6 +38,7 @@ const DownloadBhavCopy = ({ request }) => {
             type="primary"
             onClick={handleDownload}
             loading={isDownloading}
+            disabled={isDownloading}
             style={{ marginLeft: 10 }}
         >
             {isDownloading ? "Downloading..." : "Download"}

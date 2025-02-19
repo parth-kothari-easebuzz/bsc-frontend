@@ -19,10 +19,6 @@ const Edit = ({ id, onClose, refreshData }) => {
         ...record,
         trad_date: record.trad_date ? dayjs(record.trad_date) : null,
         biz_date: record.biz_date ? dayjs(record.biz_date) : null,
-        open_price: Number(record.open_price),
-        high_price: Number(record.high_price),
-        low_price: Number(record.low_price),
-        close_price: Number(record.close_price),
       });
     } catch (error) {
       console.error("Error fetching record:", error);
