@@ -13,7 +13,7 @@ const Edit = ({ id, onClose, refreshData }) => {
     try {
       setIsLoading(true)
       const response = await get_record_by_id(id);
-      const record = response.data;
+      const record = response.data.message;
 
       form.setFieldsValue({
         ...record,

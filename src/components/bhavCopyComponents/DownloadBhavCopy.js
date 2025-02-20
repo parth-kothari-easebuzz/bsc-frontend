@@ -19,7 +19,6 @@ const DownloadBhavCopy = ({ request }) => {
         setIsDownloading(true);
         try {
             const response = await download_bhav_copy.downloadBhavCopy(formattedDate);
-
             if (response && response.status === 200) {
                 FileSaver.saveAs(response.data, `BhavCopy_${formattedDate}.csv`);
                 showAlert("Download completed.", "");

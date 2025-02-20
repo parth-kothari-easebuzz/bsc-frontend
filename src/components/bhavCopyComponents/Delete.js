@@ -17,7 +17,7 @@ const Delete = ({ id, onClose, refreshData }) => {
       setIsLoading(true)
       const response = await get_record_by_id(id);
 
-      setRecord(response.data);
+      setRecord(response.data.message);
     } catch (error) {
       console.error("Error fetching data:", error);
       showAlert("", "No record found for requested id");

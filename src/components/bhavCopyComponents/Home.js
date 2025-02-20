@@ -32,12 +32,12 @@ const Home = () => {
     try {
       setIsLoading(true)
       const response = await get_all_records(currentPage, pageSize, searchQuery);
-      const records = response.data.data;
+      const records = response.data.message.data;
       setData(records);
-      setTotalRecords(response.data.total);
+      setTotalRecords(response.data.message.total);
       setHasRecords(records.length > 0);
     } catch (error) {
-      showAlert("", "No records found.");
+      // showAlert("", "No record found.");
       setHasRecords(false);
       setData([]);
     } finally {
